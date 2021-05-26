@@ -4,4 +4,9 @@ When you do not license your code on a code host like GitHub then it means that 
 SEND ME IF PPL SKID 
 
 credits to https://github.com/ALEHACKsp/discord-sharex
+
+
+
+
+
 https://github.com/aagk for helping with stripping url
