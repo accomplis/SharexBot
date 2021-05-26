@@ -68,8 +68,8 @@ async def upload(ctx, file=""):
 @bot.command()
 async def codes(ctx):
         await ctx.message.delete()
-        embeded = discord.Embed(title='Status Codes', description='Powered by pays.host', color=0xff08e8)
-        embeded.set_thumbnail(url='https://images-ext-2.discordapp.net/external/rok6v5ymq2zln81LoVx79BZAoO25wE69pyKwRi9-HMo/https/dka575ofm4ao0.cloudfront.net/pages-transactional_logos/retina/217008/logo.png?width=756&height=145',)
+        embeded = discord.Embed(title='Status Codes', description='Sharex Discord Bot', color=0xff08e8)
+        embeded.set_thumbnail(url='https://images.g2crowd.com/uploads/product/image/social_landscape/social_landscape_98e000fe6f47f2143f404d71bbd8c4d8/sharex.png',)
         embeded.add_field(name="412", value=f'The request did not contain a User-Agent header.', inline=False)
         embeded.add_field(name="410", value='The collection you tried to upload to is set to private and requires a collection token in order to upload to it.', inline=False)
         embeded.add_field(name="403", value=f'The specified upload token does not match the domains upload token',inline=False)
@@ -90,7 +90,7 @@ async def codes(ctx):
 async def help(ctx):
         await ctx.message.delete()
         embeded = discord.Embed(title=f'***Help***', description='Sharex Bot', color=0xff08e8)
-        embeded.set_thumbnail(url='https://images-ext-2.discordapp.net/external/rok6v5ymq2zln81LoVx79BZAoO25wE69pyKwRi9-HMo/https/dka575ofm4ao0.cloudfront.net/pages-transactional_logos/retina/217008/logo.png?width=756&height=145',)
+        embeded.set_thumbnail(url='https://images.g2crowd.com/uploads/product/image/social_landscape/social_landscape_98e000fe6f47f2143f404d71bbd8c4d8/sharex.png',)
         embeded.add_field(name="Upload", value=f'Uploads An Image To pays.host.', inline=False)
         embeded.add_field(name="Codes", value='Shows all the Status codes you may recive when uploading an image and what they mean', inline=False)
         embeded.add_field(name="Help", value='Shows This Menu', inline=False)
