@@ -105,11 +105,28 @@ async def text(self, *, text):
         r = requests.post(fart, data=a)
         b = (r.text)
         c = (r)
-        embed=discord.Embed(title=main.EMBEDTITLE, color=main.EMBEDCOLOUR)
+        embed=discord.Embed(title='text uploader', color=0xff08e8)
         embed.add_field(name='URL:',value=f"{b}, {c}")
         embed.set_footer(text=Here Is Your Code, icon_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSIJUoUGnHsedhJ7kr_5aikSz3tLRibYpEy2Kx82FLzvABc6GY:https://bs-uploads.toptal.io/blackfish-uploads/blog/post/seo/og_image_file/og_image/21026/how-to-make-a-discord-bot-7c0fe302b98b05b145682344b3a4ec59.png&usqp=CAU")
         embed.set_thumbnail(url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSIJUoUGnHsedhJ7kr_5aikSz3tLRibYpEy2Kx82FLzvABc6GY:https://bs-uploads.toptal.io/blackfish-uploads/blog/post/seo/og_image_file/og_image/21026/how-to-make-a-discord-bot-7c0fe302b98b05b145682344b3a4ec59.png&usqp=CAU")
         embed.timestamp = datetime.now()
         await self.send(embed=embed)
 
+          
+@bot.command()
+async def shorten(self,website):
+  sex = ("https://reeeereeeereeeeerererer.reeee.ee/shorten")
+  sexo = {
+     "link": f"{website}"
+      }
+  r = requests.post(sex, data=sexo)
+  data = r.json()
+  shortlink = data['url']
+  embed=discord.Embed(title='URL', color=0xff08e8)
+  embed.add_field(name='URL:',value=f"{shortlink}")
+  embed.set_footer(text=Here Is Your URL, icon_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSIJUoUGnHsedhJ7kr_5aikSz3tLRibYpEy2Kx82FLzvABc6GY:https://bs-uploads.toptal.io/blackfish-uploads/blog/post/seo/og_image_file/og_image/21026/how-to-make-a-discord-bot-7c0fe302b98b05b145682344b3a4ec59.png&usqp=CAU")
+  embed.set_thumbnail(url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSIJUoUGnHsedhJ7kr_5aikSz3tLRibYpEy2Kx82FLzvABc6GY:https://bs-uploads.toptal.io/blackfish-uploads/blog/post/seo/og_image_file/og_image/21026/how-to-make-a-discord-bot-7c0fe302b98b05b145682344b3a4ec59.png&usqp=CAU")
+  embed.timestamp = datetime.now()
+  await self.send(embed=embed) 
+          
 bot.run(token)
