@@ -21,4 +21,11 @@ Rex ❤
 if you need help join my server
 
 
+AYO AYYO
+lmao look
+skid
+![image](https://user-images.githubusercontent.com/78220017/119745860-ac2b9600-be54-11eb-9a2c-5372b1386240.png)
+
+![image](https://user-images.githubusercontent.com/78220017/119745873-b483d100-be54-11eb-93fb-9fe00ae0df44.png)
+
 https://discord.gg/v4KdfxjH
