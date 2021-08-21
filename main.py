@@ -5,14 +5,15 @@ import requests
 import aiofiles
 import aiohttp
 import re
-token = "token"
+from datetime import datetime
+token = "BOT TOKEN"
 bot = commands.Bot(command_prefix=">")
 
 
 bot.remove_command('help')
-serverurl = "Image Server"
+serverurl = "https://api.shx.is/api/files/create"
 body = {
-     "password": "image password",
+     "token": "SIKE LMAO"
     }
 fileform = "file" # file as example
 
@@ -21,9 +22,9 @@ async def on_ready():
     print("Connected to API")
   
 @bot.command(name='upload')
-@commands.has_any_role(role id)
+@commands.has_any_role(ROLE ID THAT YOU WANT PEOPLE TO NEED TO UPLOAD IMAGES GOES HERE)
 async def upload(ctx, file=""):
-    channel = bot.get_channel(log channel id)
+    channel = bot.get_channel(LOG CHANNEL TO SEE WHAT PEOPLE UPDATE )
     if file:
 
         url = file
@@ -49,17 +50,20 @@ async def upload(ctx, file=""):
     }
     r = requests.request('POST', serverurl, data=body, files=dict(files))
     
-    #image = data['url']
+    data = r.json()
+
+    image = data['url']
     s = (r)
   
     a = (r.text)
+
     #data = r.json()
     #image = data['url']
   
     print (a)      # parse json
     #decode = r.content.decode("utf-8") # convert bytes to string
-    embed=discord.Embed(title=f'Here Is Your Link',  color=0xff08e8, description=f'Status code = {s}```{a}```Was uploaded by {ctx.author.name}#{ctx.author.discriminator}')
-    embead=discord.Embed(title=f'LOGS',  color=0xff08e8, description=f'```{a}```Was uploaded by {ctx.author.name}#{ctx.author.discriminator} With {s} Status Code')
+    embed=discord.Embed(title=f'Here Is Your Link',  color=0x36393F, description=f'Status code = {s}```{image}```Was uploaded by {ctx.author.name}#{ctx.author.discriminator}')
+    embead=discord.Embed(title=f'LOGS',  color=0x36393F, description=f'```{image}```Was uploaded by {ctx.author.name}#{ctx.author.discriminator} With {s} Status Code')
 
     await ctx.send(embed=embed)
     await channel.send(embed=embead)
@@ -68,8 +72,8 @@ async def upload(ctx, file=""):
 @bot.command()
 async def codes(ctx):
         await ctx.message.delete()
-        embeded = discord.Embed(title='Status Codes', description='Sharex Discord Bot', color=0xff08e8)
-        embeded.set_thumbnail(url='https://images.g2crowd.com/uploads/product/image/social_landscape/social_landscape_98e000fe6f47f2143f404d71bbd8c4d8/sharex.png',)
+        embeded = discord.Embed(title='Status Codes', description='Sharex Discord Bot', color=0x36393F)
+        embeded.set_thumbnail(url='https://cdn.discordapp.com/emojis/393945218799501312.gif?v=1',)
         embeded.add_field(name="412", value=f'The request did not contain a User-Agent header.', inline=False)
         embeded.add_field(name="410", value='The collection you tried to upload to is set to private and requires a collection token in order to upload to it.', inline=False)
         embeded.add_field(name="403", value=f'The specified upload token does not match the domains upload token',inline=False)
@@ -89,15 +93,18 @@ async def codes(ctx):
 @bot.command()
 async def help(ctx):
         await ctx.message.delete()
-        embeded = discord.Embed(title=f'***Help***', description='Sharex Bot', color=0xff08e8)
-        embeded.set_thumbnail(url='https://images.g2crowd.com/uploads/product/image/social_landscape/social_landscape_98e000fe6f47f2143f404d71bbd8c4d8/sharex.png',)
+        embeded = discord.Embed(title=f'***Help***', description='Sharex Bot', color=0x36393F)
+        embeded.set_thumbnail(url='https://cdn.discordapp.com/emojis/393945218799501312.gif?v=1',)
         embeded.add_field(name="Upload", value=f'Uploads An Image To pays.host.', inline=False)
         embeded.add_field(name="Codes", value='Shows all the Status codes you may recive when uploading an image and what they mean', inline=False)
+        embeded.add_field(name="shorten", value='Shortens a url', inline=False)
+        embeded.add_field(name="paste", value='uploads text to a text hoster like pastebin', inline=False)
+
         embeded.add_field(name="Help", value='Shows This Menu', inline=False)
         await ctx.send(embed=embeded)
 
 @bot.command()          
-async def text(self, *, text):
+async def paste(self, *, text):
         fart = ("https://cancer-co.de/upload")
         a = {
            "text": f"{text}"
@@ -105,27 +112,30 @@ async def text(self, *, text):
         r = requests.post(fart, data=a)
         b = (r.text)
         c = (r)
-        embed=discord.Embed(title='text uploader', color=0xff08e8)
-        embed.add_field(name='URL:',value=f"{b}, {c}")
-        embed.set_footer(text=Here Is Your Code, icon_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSIJUoUGnHsedhJ7kr_5aikSz3tLRibYpEy2Kx82FLzvABc6GY:https://bs-uploads.toptal.io/blackfish-uploads/blog/post/seo/og_image_file/og_image/21026/how-to-make-a-discord-bot-7c0fe302b98b05b145682344b3a4ec59.png&usqp=CAU")
-        embed.set_thumbnail(url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSIJUoUGnHsedhJ7kr_5aikSz3tLRibYpEy2Kx82FLzvABc6GY:https://bs-uploads.toptal.io/blackfish-uploads/blog/post/seo/og_image_file/og_image/21026/how-to-make-a-discord-bot-7c0fe302b98b05b145682344b3a4ec59.png&usqp=CAU")
+        data = r.json()
+
+        aya = data['url']
+        embed=discord.Embed(title='text uploader', color=0x36393F)
+        embed.add_field(name='URL:',value=f"{aya}, {c}")
+        embed.set_footer(text="Sharex Bot", icon_url="https://cdn.discordapp.com/emojis/393945218799501312.gif?v=1")
+        embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/393945218799501312.gif?v=1")
         embed.timestamp = datetime.now()
         await self.send(embed=embed)
 
           
 @bot.command()
 async def shorten(self,website):
-  sex = ("https://reeeereeeereeeeerererer.reeee.ee/shorten")
+  sex = ("https://api.shx.gg/shorten")
   sexo = {
      "link": f"{website}"
       }
   r = requests.post(sex, data=sexo)
   data = r.json()
   shortlink = data['url']
-  embed=discord.Embed(title='URL', color=0xff08e8)
+  embed=discord.Embed(title='URL', color=0x36393F)
   embed.add_field(name='URL:',value=f"{shortlink}")
-  embed.set_footer(text=Here Is Your URL, icon_url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSIJUoUGnHsedhJ7kr_5aikSz3tLRibYpEy2Kx82FLzvABc6GY:https://bs-uploads.toptal.io/blackfish-uploads/blog/post/seo/og_image_file/og_image/21026/how-to-make-a-discord-bot-7c0fe302b98b05b145682344b3a4ec59.png&usqp=CAU")
-  embed.set_thumbnail(url="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTSIJUoUGnHsedhJ7kr_5aikSz3tLRibYpEy2Kx82FLzvABc6GY:https://bs-uploads.toptal.io/blackfish-uploads/blog/post/seo/og_image_file/og_image/21026/how-to-make-a-discord-bot-7c0fe302b98b05b145682344b3a4ec59.png&usqp=CAU")
+  embed.set_footer(text="Sharex Bot", icon_url="https://cdn.discordapp.com/emojis/393945218799501312.gif?v=1")
+  embed.set_thumbnail(url="https://cdn.discordapp.com/emojis/393945218799501312.gif?v=1")
   embed.timestamp = datetime.now()
   await self.send(embed=embed) 
           
