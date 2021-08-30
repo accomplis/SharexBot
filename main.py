@@ -6,8 +6,15 @@ import aiofiles
 import aiohttp
 import re
 from datetime import datetime
-token = "BOT TOKEN"
-bot = commands.Bot(command_prefix=">")
+
+with open('config.json') as f:
+    config = json.load(f)
+
+token = config.get('token')
+prefix = config.get('prefix')
+bot = commands.Bot(command_prefix="{prefix}")
+
+
 
 
 bot.remove_command('help')
