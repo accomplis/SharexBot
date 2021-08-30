@@ -1,4 +1,3 @@
-
 import discord
 from discord.ext import commands
 import requests
@@ -6,12 +5,22 @@ import aiofiles
 import aiohttp
 import re
 from datetime import datetime
-token = "BOT TOKEN"
-bot = commands.Bot(command_prefix=">")
+
+with open('config.json') as f:
+    config = json.load(f)
+
+token = config.get('token')
+prefix = config.get('prefix')
+shortenurl = config.get('shortenurl')
+serverurl = config.get('serverurl')
+textpasteurl = config.get('textpasteurl')
+
+bot = commands.Bot(command_prefix="{prefix}")
+
+
 
 
 bot.remove_command('help')
-serverurl = "https://api.shx.is/api/files/create"
 body = {
      "token": "SIKE LMAO"
     }
@@ -105,7 +114,7 @@ async def help(ctx):
 
 @bot.command()          
 async def paste(self, *, text):
-        fart = ("https://cancer-co.de/upload")
+        fart = textpasteurl
         a = {
            "text": f"{text}"
            }
@@ -125,7 +134,7 @@ async def paste(self, *, text):
           
 @bot.command()
 async def shorten(self,website):
-  sex = ("https://api.shx.gg/shorten")
+  sex = shortenurl
   sexo = {
      "link": f"{website}"
       }
